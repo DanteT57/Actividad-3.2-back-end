@@ -13,7 +13,7 @@ router.post('/insertar', function (req, res, next) {
     if (!usuario || !clave ) {
         return res.status(500).send("No hay usuario o clave");
     }
-    // Si todo sale bien, seguimos
+    
     registrarseModel
         .insertar(usuario, clave)
         .then(() => {

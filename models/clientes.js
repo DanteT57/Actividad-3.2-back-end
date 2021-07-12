@@ -1,7 +1,7 @@
 const conexion = require("../conexion")
 module.exports = {
   
-	async insertar(cedula, nombre, telefono, direccion) {  // modulo usando async await
+	async insertar(cedula, nombre, telefono, direccion) { 
         let resultados = await conexion.query(`insert into clientes
         (cedula, nombre, telefono, direccion)
         values
@@ -27,19 +27,7 @@ module.exports = {
                 });
         });
     }, 
-   /* actualizar(id, nombre, precio) {
-        return new Promise((resolve, reject) => {
-            conexion.query(`update productos
-            set nombre = ?,
-            precio = ?
-            where id = ?`,
-                [nombre, precio, id],
-                (err) => {
-                    if (err) reject(err);
-                    else resolve();
-                });
-        });
-    }, */
+   
 	async actualizar(id, nombre, telefono, direccion) {   // modulo usando async await
         const resultados = conexion.query(`update clientes
 		set nombre = ?,

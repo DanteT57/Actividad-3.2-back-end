@@ -30,7 +30,7 @@ router.post('/insertar', function (req, res, next) {
     if (!rif || !nombre || !telefono || !direccion || !contacto) {
         return res.status(500).send("No hay rif, nombre, telefono, direccion o contacto");
     }
-    // Si todo sale bien, seguimos
+    
     proveedoresModel
         .insertar(rif, nombre, telefono, direccion, contacto)
         .then(() => {
@@ -71,7 +71,7 @@ router.post('/actualizar/', function (req, res, next) {
     if (!nombre || !telefono || !direccion || !id || !contacto) {
         return res.status(500).send("No hay suficientes datos");
     }
-    // Si todo sale bien, seguimos
+    
     proveedoresModel
         .actualizar(id, nombre, telefono, direccion, contacto)
         .then(() => {

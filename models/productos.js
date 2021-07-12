@@ -1,17 +1,6 @@
 const conexion = require("../conexion")
 module.exports = {
-  /*  insertar(nombre, precio) {
-        return new Promise((resolve, reject) => {
-            conexion.query(`insert into productos
-            (nombre, precio)
-            values
-            (?, ?)`,
-                [nombre, precio], (err, resultados) => {
-                    if (err) reject(err);
-                    else resolve(resultados.insertId);
-                });
-        });
-    }, */
+ 
 	async insertar(nombre, marca, especificaciones, precio) {  // modulo usando async await
         let resultados = await conexion.query(`insert into productos
         (nombre, marca, especificaciones, precio)
@@ -38,19 +27,7 @@ module.exports = {
                 });
         });
     }, 
-   /* actualizar(id, nombre, precio) {
-        return new Promise((resolve, reject) => {
-            conexion.query(`update productos
-            set nombre = ?,
-            precio = ?
-            where id = ?`,
-                [nombre, precio, id],
-                (err) => {
-                    if (err) reject(err);
-                    else resolve();
-                });
-        });
-    }, */
+ 
 	async actualizar(id, nombre, marca, especificaciones, precio) {   // modulo usando async await
         const resultados = conexion.query(`update productos
         set nombre = ?,

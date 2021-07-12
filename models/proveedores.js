@@ -27,19 +27,7 @@ module.exports = {
                 });
         });
     }, 
-   /* actualizar(id, nombre, precio) {
-        return new Promise((resolve, reject) => {
-            conexion.query(`update productos
-            set nombre = ?,
-            precio = ?
-            where id = ?`,
-                [nombre, precio, id],
-                (err) => {
-                    if (err) reject(err);
-                    else resolve();
-                });
-        });
-    }, */
+  
 	async actualizar(id, nombre, telefono, direccion, contacto) {   // modulo usando async await
         const resultados = conexion.query(`update proveedores
 		set nombre = ?,

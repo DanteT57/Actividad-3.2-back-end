@@ -12,7 +12,7 @@ router.post('/login', function (req, res, next) {
     if (!usuario || !clave) {
         return res.status(500).send("No hay Usuario o Clave");
     }
-    // Si todo sale bien, seguimos
+   
     loginModel
         .buscarusuario(usuario, clave)
         .then(login => {

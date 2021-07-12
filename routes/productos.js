@@ -25,16 +25,12 @@ router.get('/agregar', function (req, res, next) {
     res.render("productos/agregar");
 });
 router.post('/insertar', function (req, res, next) {
-   // Obtener el nombre marca, especificaciones y precio. Es lo mismo que
-    // const nombre = req.body.nombre;
-	//const marca = req.body.marca;
-	//const especificaciones = req.body.especificaciones;
-    // const precio = req.body.precio;
+  
     const { nombre, marca, especificaciones, precio } = req.body;
     if (!nombre || !marca || !especificaciones || !precio) {
         return res.status(500).send("No hay nombre, marca, especificaciones o precio");
     }
-    // Si todo sale bien, seguimos
+    
     productosModel
         .insertar(nombre, marca, especificaciones, precio)
         .then(idProductoInsertado => {
@@ -71,16 +67,12 @@ router.get('/editar/:id', function (req, res, next) {
         });
 });
 router.post('/actualizar/', function (req, res, next) {
-    // Obtener el nombre marca, especificaciones y precio. Es lo mismo que
-    // const nombre = req.body.nombre;
-	//const marca = req.body.marca;
-	//const especificaciones = req.body.especificaciones;
-    // const precio = req.body.precio;
+    
     const { id, nombre, marca, especificaciones, precio } = req.body;
     if (!nombre || !marca || !especificaciones || !precio || !id) {
         return res.status(500).send("No hay suficientes datos");
     }
-    // Si todo sale bien, seguimos
+    
     productosModel
         .actualizar(id, nombre, marca, especificaciones, precio)
         .then(() => {
